@@ -3,7 +3,7 @@ import units from './configs/units';
 import BigNumber from 'bignumber.js';
 
 const INITIAL_STATE = {
-	inputRows: units.map(obj => ({...obj, val: ''}))
+	inputRows: units.map(obj => ({...obj, value: ''}))
 };
 
 export default function (state = INITIAL_STATE, {type, payload}) {
@@ -22,7 +22,7 @@ export default function (state = INITIAL_STATE, {type, payload}) {
 			for (let i = 0; i < state.inputRows.length; i++) {
 				newInputRows.push({
 					...state.inputRows[i],
-					val: !isEmptyValue
+					value: !isEmptyValue
 						? wei.shiftedBy(-state.inputRows[i].dec).toString(10)
 						: ''
 				});

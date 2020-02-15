@@ -8,28 +8,14 @@ class InputRow extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {value: this.props.value};
-
 		this.inputRef = React.createRef();
 
 		this.labelClickHandler = this.labelClickHandler.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
-	static getDerivedStateFromProps(props, state) {
-		if (props.value !== state.value) {
-			return {
-				value: props.value
-			};
-		}
-
-		// Return null to indicate no change to state.
-		return null;
-	}
-
 	handleInputChange(event) {
 		const value = event.target.value;
-		this.setState({value});
 		this.props.onChange(value);
 	}
 
@@ -38,7 +24,7 @@ class InputRow extends Component {
 	}
 
 	isLt1() {
-		return BigNumber(this.state.value).lt(1);
+		return BigNumber(this.props.value).lt(1);
 	}
 
 	render() {
@@ -50,7 +36,7 @@ class InputRow extends Component {
 				</div>
 				<input type="number" className={`input-row__input input-row__input--${this.isLt1() ? 'lt1' : 'def'}`}
 				       placeholder={this.props.placeholder}
-				       value={this.state.value}
+				       value={this.props.value}
 				       ref={this.inputRef}
 				       onChange={this.handleInputChange}/>
 			</div>
@@ -63,8 +49,7 @@ InputRow.defaultProps = {
 	value: '',
 	main: false,
 	placeholder: '0',
-	onChange: () => {
-	}
+	onChange: () => {}
 };
 
 InputRow.propTypes = {

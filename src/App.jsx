@@ -16,7 +16,7 @@ class App extends Component {
 					key={i}
 					label={ir.name}
 					main={ir.main}
-					value={ir.val}
+					value={ir.value}
 					onChange={v => this.onInputRowChange(ir.name, v)}
 				/>
 			);
