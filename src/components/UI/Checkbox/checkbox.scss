@@ -1,0 +1,35 @@
+.checkbox {
+  display: inline-block;
+  vertical-align: middle;
+
+  &__icon {
+    fill: none;
+    stroke: #ECFAFA;
+    stroke-width: 2px;
+
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+
+  &__input {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clippath: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  &__styled {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #3C474C;
+    transition: all 150ms;
+  }
+}

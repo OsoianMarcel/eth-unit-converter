@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-//import NotificationReducer from '../components/Notification/notificationReducer';
+import appReducer from '../appReducer';
 
 const reducers = combineReducers({
-    //notification: NotificationReducer
+	app: appReducer
 });
 
 export default reducers;
