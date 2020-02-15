@@ -1,4 +1,4 @@
-import {CHANGE_ROWS} from './appConstants';
+import {CHANGE_ROWS, CHANGE_MODE} from './appConstants';
 
 export const changeRowValue = (name, value) => {
 	return {
@@ -7,5 +7,12 @@ export const changeRowValue = (name, value) => {
 			name,
 			value
 		}
+	};
+};
+
+export const changeMode = (isExtended) => {
+	return {
+		type: CHANGE_MODE,
+		payload: isExtended
 	};
 };

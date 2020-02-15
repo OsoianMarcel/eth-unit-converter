@@ -22,10 +22,17 @@ a {
   margin: 80px auto 15px auto;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 14px;
+}
+
 .title {
   color: #ECFDFD;
   font-weight: 300;
-  margin-bottom: 14px;
 
   &__xs {
     font-size: 12px;

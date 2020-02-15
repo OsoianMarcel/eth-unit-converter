@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {InputRow} from './components/UI/InputRow';
 import {Checkbox} from './components/UI/Checkbox';
-import {changeRowValue} from './appActions';
+import {changeRowValue, changeMode} from './appActions';
 
 import './app.scss';
 
@@ -28,14 +28,24 @@ class App extends Component {
 	render() {
 		return (
 			<div className="main-container">
-				<div className="title">
-					<div className="title__xs">Ethereum</div>
-					<div className="title__md">Unit Converter</div>
+				<div className="header">
+					<div className="left">
+						<div className="title">
+							<div className="title__xs">Ethereum</div>
+							<div className="title__md">Unit Converter</div>
+						</div>
+					</div>
+					<div className="right">
+						<Checkbox checked={this.props.extended}
+							label="Extended"
+							onChange={b => this.props.changeMode(b)}/>
+					</div>
 				</div>
-				<Checkbox/>
+
 				<div className="input-rows">
 					{this.renderInputRows()}
 				</div>
+				
 				<div className="footer">
 					Made with ♥<br/>
 					by <a href="https://github.com/osoianmarcel" rel="noreferrer noopener" target="_blank">Osoian
@@ -52,13 +62,20 @@ class App extends Component {
 
 
 const mapStateToProps = state => {
+	let visibleInputRows = state.app.inputRows;
+	if (!state.app.extended) {
+		visibleInputRows = visibleInputRows.filter(ir => ir.main);
+	}
+
 	return {
-		inputRows: state.app.inputRows
+		inputRows: visibleInputRows,
+		extended: state.app.extended
 	};
 };
 
 const mapDispatchToProps = {
-	changeRowValue
+	changeRowValue,
+	changeMode
 };
 
 export default connect(

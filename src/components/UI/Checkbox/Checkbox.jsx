@@ -12,20 +12,8 @@ class Checkbox extends Component {
 		};
 
 		this.handleClick = this.handleClick.bind(this);
-	}
-	/*
-	  static getDerivedStateFromProps(props, state) {
-		if (props.checked !== state.checked) {
-		  console.log(props, state)
-		  return {
-			checked: props.checked
-		  };
-		}
+  }
 
-		// Return null to indicate no change to state.
-		return null;
-	  }
-	*/
 	handleClick() {
 		this.setState(prevState => ({checked: !prevState.checked}), () => {
 			this.props.onChange(this.state.checked);
@@ -41,19 +29,22 @@ class Checkbox extends Component {
 						<polyline points="20 6 9 17 4 12"/>
 					</svg>
 				</div>
+        <div className="checkbox__label">{this.props.label}</div>
 			</div>
 		);
 	}
 }
 
 Checkbox.defaultProps = {
-	checked: false,
+  checked: false,
+  label: "Checkbox",
 	onChange: () => {}
 };
 
 Checkbox.propTypes = {
 	checked: PropTypes.bool,
-	onChange: PropTypes.func
+  onChange: PropTypes.func,
+  label: PropTypes.string
 };
 
 export default Checkbox;

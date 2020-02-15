@@ -1,7 +1,7 @@
 .checkbox {
-  display: inline-block;
-  vertical-align: middle;
-
+  display: inline-flex;
+  flex-direction: row;
+  
   &__icon {
     fill: none;
     stroke: #ECFAFA;
@@ -31,5 +31,15 @@
     height: 16px;
     border: 1px solid #3C474C;
     transition: all 150ms;
+  }
+
+  &__label {
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #ACAEAF;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
   }
 }

@@ -1,9 +1,10 @@
-import {CHANGE_ROWS} from './appConstants';
+import {CHANGE_ROWS, CHANGE_MODE} from './appConstants';
 import units from './configs/units';
 import BigNumber from 'bignumber.js';
 
 const INITIAL_STATE = {
-	inputRows: units.map(obj => ({...obj, value: ''}))
+	inputRows: units.map(obj => ({...obj, value: ''})),
+	extended: false
 };
 
 export default function (state = INITIAL_STATE, {type, payload}) {
@@ -29,6 +30,8 @@ export default function (state = INITIAL_STATE, {type, payload}) {
 			}
 
 			return {...state, inputRows: newInputRows};
+		case CHANGE_MODE:
+			return {...state, extended: payload};
 		default:
 			return state;
 	}

@@ -53,7 +53,7 @@ InputRow.defaultProps = {
 };
 
 InputRow.propTypes = {
-	label: PropTypes.string,
+	label: PropTypes.string.isRequired,
 	value: PropTypes.string,
 	main: PropTypes.bool,
 	placeholder: PropTypes.string,
