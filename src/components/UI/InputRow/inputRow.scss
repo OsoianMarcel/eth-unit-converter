@@ -1,0 +1,37 @@
+.input-row {
+    display: flex;
+    flex-direction: row;
+  
+    &__input {
+      display: inline-block;
+      width: 100%;
+      border: 1px solid #2E3339;
+      border-radius: 1px;
+      background: #343A40;
+      font-size: 18px;
+      color: #EDFEFE;
+      height: 40px;
+      padding: 0 5px;
+  
+      &::placeholder {
+        color: #7E848B;
+      }
+    }
+  
+    &__label {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 75px;
+        font-size: 18px;
+        font-weight: 300;
+        text-transform: capitalize;
+        cursor: pointer;
+        user-select: none;
+
+        &--main {
+          font-weight: 500;
+        }
+    }
+  }
+  
