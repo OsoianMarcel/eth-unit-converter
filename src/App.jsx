@@ -37,15 +37,15 @@ class App extends Component {
 					</div>
 					<div className="right">
 						<Checkbox checked={this.props.extended}
-							label="Extended"
-							onChange={b => this.props.changeMode(b)}/>
+						          label="Extended"
+						          onChange={b => this.props.changeMode(b)}/>
 					</div>
 				</div>
 
 				<div className="input-rows">
 					{this.renderInputRows()}
 				</div>
-				
+
 				<div className="footer">
 					Made with ♥<br/>
 					by <a href="https://github.com/osoianmarcel" rel="noreferrer noopener" target="_blank">Osoian

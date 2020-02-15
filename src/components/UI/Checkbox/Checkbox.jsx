@@ -12,7 +12,7 @@ class Checkbox extends Component {
 		};
 
 		this.handleClick = this.handleClick.bind(this);
-  }
+	}
 
 	handleClick() {
 		this.setState(prevState => ({checked: !prevState.checked}), () => {
@@ -29,22 +29,22 @@ class Checkbox extends Component {
 						<polyline points="20 6 9 17 4 12"/>
 					</svg>
 				</div>
-        <div className="checkbox__label">{this.props.label}</div>
+				<span className="checkbox__label">{this.props.label}</span>
 			</div>
 		);
 	}
 }
 
 Checkbox.defaultProps = {
-  checked: false,
-  label: "Checkbox",
+	checked: false,
+	label: "Checkbox",
 	onChange: () => {}
 };
 
 Checkbox.propTypes = {
 	checked: PropTypes.bool,
-  onChange: PropTypes.func,
-  label: PropTypes.string
+	onChange: PropTypes.func,
+	label: PropTypes.string
 };
 
 export default Checkbox;

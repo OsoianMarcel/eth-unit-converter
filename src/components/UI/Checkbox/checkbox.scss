@@ -1,7 +1,8 @@
 .checkbox {
   display: inline-flex;
+  align-items: center;
   flex-direction: row;
-  
+
   &__icon {
     fill: none;
     stroke: #ECFAFA;
@@ -10,19 +11,6 @@
     &--hidden {
       visibility: hidden;
     }
-  }
-
-  &__input {
-    border: 0;
-    clip: rect(0 0 0 0);
-    clippath: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
   }
 
   &__styled {
@@ -36,7 +24,6 @@
   &__label {
     margin-left: 5px;
     display: inline-block;
-    vertical-align: middle;
     color: #ACAEAF;
     font-weight: 300;
     cursor: pointer;
