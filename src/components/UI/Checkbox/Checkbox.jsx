@@ -37,7 +37,7 @@ class Checkbox extends Component {
 
 Checkbox.defaultProps = {
 	checked: false,
-	label: "Checkbox",
+	label: 'Checkbox',
 	onChange: () => {}
 };
 
