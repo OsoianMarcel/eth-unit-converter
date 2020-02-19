@@ -9,30 +9,37 @@ const INITIAL_STATE = {
 
 export default function (state = INITIAL_STATE, {type, payload}) {
 	switch (type) {
-		case CHANGE_ROWS:
-			const rowChangeInitiator = state.inputRows.filter(ri => ri.name === payload.name)[0];
-			if (!rowChangeInitiator) {
-				throw new Error(`Can not change rows, because name "${payload.name}" not found`);
+	case CHANGE_ROWS:
+		const rowChangeInitiator = state.inputRows.filter(ri => ri.name === payload.name)[0];
+		if (!rowChangeInitiator) {
+			throw new Error(`Can not change rows, because name "${payload.name}" not found`);
+		}
+
+		const isEmptyValue = payload.value.trim() === '';
+
+		const wei = !isEmptyValue ? BigNumber(payload.value).shiftedBy(rowChangeInitiator.dec) : BigNumber(0);
+
+		const newInputRows = [];
+		for (let i = 0; i < state.inputRows.length; i++) {
+			let newVal;
+			if (isEmptyValue) {
+				newVal = '';
+			} else if (state.inputRows[i].name === payload.name) {
+				newVal = payload.value;
+			} else {
+				newVal = wei.shiftedBy(-state.inputRows[i].dec).toString(10);
 			}
 
-			const isEmptyValue = payload.value.trim() === '';
+			newInputRows.push({
+				...state.inputRows[i],
+				value: newVal
+			});
+		}
 
-			const wei = !isEmptyValue ? BigNumber(payload.value).shiftedBy(rowChangeInitiator.dec) : BigNumber(0);
-
-			const newInputRows = [];
-			for (let i = 0; i < state.inputRows.length; i++) {
-				newInputRows.push({
-					...state.inputRows[i],
-					value: !isEmptyValue
-						? wei.shiftedBy(-state.inputRows[i].dec).toString(10)
-						: ''
-				});
-			}
-
-			return {...state, inputRows: newInputRows};
-		case CHANGE_MODE:
-			return {...state, extended: payload};
-		default:
-			return state;
+		return {...state, inputRows: newInputRows};
+	case CHANGE_MODE:
+		return {...state, extended: payload};
+	default:
+		return state;
 	}
 }
