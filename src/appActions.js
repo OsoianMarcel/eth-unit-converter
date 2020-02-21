@@ -1,4 +1,5 @@
-import {CHANGE_ROWS, CHANGE_MODE, LC_EXTENDED} from './appConstants';
+import {CHANGE_ROWS, CHANGE_MODE} from './appConstants';
+import jsonLocalStorage from './services/json-localstorage';
 
 export const changeRowValue = (name, value) => {
 	return {
@@ -11,7 +12,7 @@ export const changeRowValue = (name, value) => {
 };
 
 export const changeMode = (isExtended) => {
-	localStorage.setItem(LC_EXTENDED, (isExtended ? 1 : 0).toString());
+	jsonLocalStorage.set('settings.extended', isExtended);
 
 	return {
 		type: CHANGE_MODE,
