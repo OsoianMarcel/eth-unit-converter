@@ -10,7 +10,7 @@ const store = createStore(
 );
 
 const savedMode = jsonLocalStorage.get('settings.extended');
-if (savedMode !== null) {
+if (savedMode !== undefined) {
 	store.dispatch(changeMode(savedMode));
 }
 
