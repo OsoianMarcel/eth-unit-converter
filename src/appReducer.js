@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js';
 
 const INITIAL_STATE = {
 	inputRows: units.map(obj => ({...obj, value: ''})),
-	extended: false
+	extended: true
 };
 
 export default function (state = INITIAL_STATE, {type, payload}) {

@@ -6,13 +6,7 @@ class Ga {
 	 */
 	constructor(gaId) {
 		this.gaId = gaId;
-	}
-
-	/**
-	 * Initialise GA
-	 */
-	init() {
-		this.ga('create', this.gaId, 'auto');
+		this.isInit = false;
 	}
 
 	/**
@@ -25,6 +19,11 @@ class Ga {
 	ga() {
 		if (!window.ga) {
 			return undefined;
+		}
+
+		if (!this.isInit) {
+			window.ga('create', this.gaId, 'auto');
+			this.isInit = true;
 		}
 
 		return window.ga.apply(window.ga, arguments);
