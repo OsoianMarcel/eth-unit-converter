@@ -26,8 +26,8 @@ class Ga {
 		if (!window.ga) {
 			return undefined;
 		}
-		
-		return window.ga(arguments);
+
+		return window.ga.apply(window.ga, arguments);
 	}
 
 	/**
