@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {InputRow} from './components/UI/InputRow';
 import {Checkbox} from './components/UI/Checkbox';
 import {changeRowValue, changeMode} from './appActions';
+import ga from './services/ga';
 
 import './app.scss';
 
@@ -38,7 +39,7 @@ class App extends Component {
 					<div className="right">
 						<Checkbox checked={this.props.extended}
 						          label="Extended"
-						          onChange={b => this.props.changeMode(b)}/>
+						          onChange={m => this.onChangeMode(m)}/>
 					</div>
 				</div>
 
@@ -57,6 +58,16 @@ class App extends Component {
 
 	onInputRowChange(name, value) {
 		this.props.changeRowValue(name, value);
+	}
+
+	onChangeMode(mode) {
+		this.props.changeMode(mode);
+
+		ga.sendEvent({
+			category: 'UI',
+			action: 'Change Mode',
+			label: mode ? 'Extended' : 'Basic'
+		});
 	}
 }
 

@@ -1,0 +1,1 @@
+export const GA_ID = 'UA-158789031-1';
