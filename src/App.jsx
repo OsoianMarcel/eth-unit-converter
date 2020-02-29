@@ -29,11 +29,11 @@ class App extends Component {
 	render() {
 		return (
 			<div className="main-container">
-				<div className="header">
+				<header className="header">
 					<div className="left">
 						<div className="title">
-							<div className="title__xs">Ethereum</div>
-							<div className="title__md">Unit Converter</div>
+							<h2 className="title__xs">Ethereum</h2>
+							<h1 className="title__md">Unit Converter</h1>
 						</div>
 					</div>
 					<div className="right">
@@ -41,17 +41,20 @@ class App extends Component {
 						          label="Extended"
 						          onChange={m => this.onChangeMode(m)}/>
 					</div>
-				</div>
+				</header>
 
-				<div className="input-rows">
+				<main className="input-rows">
 					{this.renderInputRows()}
-				</div>
+				</main>
 
-				<div className="footer">
+				<footer className="footer">
 					Made with ♥<br/>
-					by <a href="https://github.com/osoianmarcel" rel="noreferrer noopener" target="_blank">Osoian
-					Marcel</a>
-				</div>
+					by <a href="https://github.com/osoianmarcel"
+					      rel="noreferrer noopener"
+					      target="_blank">
+						Osoian Marcel
+					</a>
+				</footer>
 			</div>
 		);
 	}

@@ -14,14 +14,17 @@
 
 .title {
   color: #ECFDFD;
-  font-weight: 300;
 
   &__xs {
     font-size: 12px;
+    font-weight: 300;
+    margin: 0;
   }
 
   &__md {
     font-size: 22px;
+    font-weight: 300;
+    margin: 0;
   }
 }
 
