@@ -33,7 +33,16 @@
 }
 
 .footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
   color: #5E7986;
   font-weight: 300;
   font-size: 13px;
+  line-height: 16px;
+
+  &__right {
+    text-align: right;
+  }
 }

@@ -48,12 +48,18 @@ class App extends Component {
 				</main>
 
 				<footer className="footer">
-					Made with ♥<br/>
-					by <a href="https://github.com/osoianmarcel"
-					      rel="noreferrer noopener"
-					      target="_blank">
-						Osoian Marcel
-					</a>
+					<div className="footer__left">
+						Made with ♥<br/>
+						by <a href="https://github.com/osoianmarcel"
+						      rel="noreferrer noopener"
+						      target="_blank">
+							Osoian Marcel
+						</a>
+					</div>
+					<div className="footer__right">
+						For feature requests<br/>
+						or bugs <a href="mailto:osoian.marcel.d@gmail.com">contact me</a>
+					</div>
 				</footer>
 			</div>
 		);
