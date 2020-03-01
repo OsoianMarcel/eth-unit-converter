@@ -4,6 +4,7 @@ import {InputRow} from './components/UI/InputRow';
 import {Checkbox} from './components/UI/Checkbox';
 import {changeRowValue, changeMode} from './appActions';
 import ga from './services/ga';
+import {CONTACT_EMAIL} from './configs/main';
 
 import './app.scss';
 
@@ -58,7 +59,7 @@ class App extends Component {
 					</div>
 					<div className="footer__right">
 						For feature requests<br/>
-						or bugs <a href="mailto:osoian.marcel.d@gmail.com">contact me</a>
+						or bugs <a href={`mailto:${CONTACT_EMAIL}?subject=Feature%2FBug%20related%20to%20Eth%20Unit%20Converter`}>contact me</a>
 					</div>
 				</footer>
 			</div>
