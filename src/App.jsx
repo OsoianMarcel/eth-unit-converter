@@ -18,6 +18,7 @@ class App extends Component {
 					key={i}
 					label={ir.name}
 					main={ir.main}
+					warnUnderZero={ir.warnUnderZero}
 					value={ir.value}
 					onChange={v => this.onInputRowChange(ir.name, v)}
 				/>
