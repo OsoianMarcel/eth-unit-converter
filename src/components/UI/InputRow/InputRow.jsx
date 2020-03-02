@@ -26,10 +26,9 @@ class InputRow extends Component {
 	}
 
 	render() {
-		const valBn = BigNumber(this.props.value),
-			isLt1 = valBn.lt(1),
-			notZero = !valBn.eq(0);
+		const isEmpty = this.props.value.trim() === '';
 
+		const valBn = BigNumber(this.props.value);
 		const warnIcon = <WarnIcon className="input-row__warn_icon"/>;
 
 		return (
@@ -38,12 +37,12 @@ class InputRow extends Component {
 				     onClick={this.labelClickHandler}>
 					{this.props.label}
 				</div>
-				<input type="number" className={`input-row__input input-row__input--${isLt1 ? 'lt1' : 'def'}`}
+				<input type="number" className={`input-row__input input-row__input--${valBn.lt(1) ? 'lt1' : 'def'}`}
 				       placeholder={this.props.placeholder}
 				       value={this.props.value}
 				       ref={this.inputRef}
 				       onChange={this.handleInputChange}/>
-				{isLt1 && notZero && this.props.warnUnderZero ? warnIcon : ''}
+				{!isEmpty && !valBn.eq(0) && !valBn.isInteger() && this.props.warnUnderZero ? warnIcon : ''}
 			</div>
 		);
 	}
