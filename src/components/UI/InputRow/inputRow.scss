@@ -58,12 +58,36 @@
     }
   }
 
-  &__warn_icon {
-    fill: #5E7986;
+  &__abs-box {
+    background: #303C41;
     position: absolute;
-    right: 8px;
-    top: 8px;
-    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    right: 9px;
+    top: 1px;
+    bottom: 1px;
+  }
+
+  &__warn_icon {
+    width: 25px;
+    fill: #5E7986;
+    margin-left: 5px;
+  }
+
+  &__copy {
+    font-weight: 500;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 5px;
+    border: 1px solid;
+    padding: 2px;
+
+    &:active {
+      opacity: 0.5;
+    }
   }
 }
   
