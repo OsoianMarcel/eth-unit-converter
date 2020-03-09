@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import BigNumber from 'bignumber.js';
 import ClipboardJS from 'clipboard';
+import ga from '../../../services/ga';
 
 import './inputRow.scss';
 
@@ -42,10 +43,22 @@ class InputRow extends Component {
 
 	labelClickHandler() {
 		this.inputRef.current.select();
+
+		ga.sendEvent({
+			category: 'UI',
+			action: 'Label Clicked',
+			label: this.props.label
+		});
 	}
 
 	handleCopyClick(e) {
 		e.preventDefault();
+
+		ga.sendEvent({
+			category: 'UI',
+			action: 'Copy Clicked',
+			label: this.props.label
+		});
 	}
 
 	render() {
