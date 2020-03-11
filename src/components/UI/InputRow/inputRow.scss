@@ -77,16 +77,22 @@
   }
 
   &__copy {
+    background: transparent;
     font-weight: 500;
     font-size: 12px;
     text-decoration: none;
     text-transform: uppercase;
     margin-left: 5px;
-    border: 1px solid;
+    color: #5E7986;
+    border: 1px solid #5E7986;
     padding: 2px;
 
-    &:active {
+    &:disabled {
       opacity: 0.5;
+    }
+
+    &--copied {
+      border: none;
     }
   }
 }

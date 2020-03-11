@@ -12,6 +12,12 @@ class InputRow extends Component {
 	constructor(props) {
 		super(props);
 
+		this.state = {
+			copied: false
+		};
+
+		this.copyTimeoutId = null;
+
 		this.clipboard = null;
 		this.isClipboardSupported = ClipboardJS.isSupported();
 		this.inputRef = React.createRef();
@@ -32,6 +38,11 @@ class InputRow extends Component {
 		if (this.isClipboardSupported) {
 			this.clipboard = new ClipboardJS(this.copyRef.current, {
 				text: () => this.props.value
+			});
+			this.clipboard.on('success', () => {
+				this.setState({copied: true});
+				clearTimeout(this.copyTimeoutId);
+				this.copyTimeoutId = setTimeout(() => this.setState({copied: false}), 500);
 			});
 		}
 	}
@@ -85,14 +96,14 @@ class InputRow extends Component {
 				        	display: !isEmpty && !valBn.eq(0) && !valBn.isInteger() && this.props.warnNonInt ? 'block' : 'none'
 				        }}
 			        />
-			        <a
-				        href={`#copy-${this.props.label}`}
-				        className="input-row__copy"
-				        style={{display: this.isClipboardSupported && !isEmpty ? 'block' : 'none'}}
+			        <button
+				        className={`input-row__copy input-row__copy--${this.state.copied ? 'copied' : 'def'}`}
+				        disabled={isEmpty}
+				        style={{display: this.isClipboardSupported ? 'block' : 'none'}}
 				        ref={this.copyRef}
 				        onClick={this.handleCopyClick}>
-				        Copy
-			        </a>
+				        {this.state.copied ? 'Done' : 'Copy'}
+			        </button>
 		        </div>
 			</div>
 		);
