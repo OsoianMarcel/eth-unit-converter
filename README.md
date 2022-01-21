@@ -4,7 +4,7 @@ Online Tool used to convert between different Ethereum Units like Wei, GWei, Sha
 
 Built with ReactJS
 
-Online version can be accessed here: https://eth-unit-converter.xyz
+Online version can be accessed here: https://ethunitconverter.osoian.com
 
 ## Available Scripts
 
