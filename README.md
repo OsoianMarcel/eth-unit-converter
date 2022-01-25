@@ -6,6 +6,8 @@ Built with ReactJS
 
 Online version can be accessed here: https://ethunitconverter.osoian.com
 
+![Screenshot](/public/og-image-fb.png?raw=true)
+
 ## Available Scripts
 
 In the project directory, you can run:
