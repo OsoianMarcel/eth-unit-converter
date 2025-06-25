@@ -12,6 +12,7 @@ type InputRowProps = {
   main?: boolean;
   warnNonInt?: boolean;
   placeholder?: string;
+  labelTitle?: string;
   onChange?: (value: string) => void;
 };
 
@@ -21,6 +22,7 @@ const InputRow: React.FC<InputRowProps> = ({
   main = false,
   warnNonInt = false,
   placeholder = '0',
+  labelTitle,
   onChange = () => {}
 }) => {
   const [copied, setCopied] = useState(false);
@@ -73,6 +75,7 @@ const InputRow: React.FC<InputRowProps> = ({
         }`}
         htmlFor={inputId}
         onClick={labelClickHandler}
+        title={labelTitle}
       >
         {label}
       </label>

@@ -48,6 +48,7 @@ const App: React.FC = () => {
           <InputRow
             key={i}
             label={ir.name}
+            labelTitle={ir.description}
             main={ir.main}
             warnNonInt={ir.warnNonInt}
             value={ir.value}

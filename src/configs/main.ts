@@ -1,1 +1,1 @@
-export const CONTACT_EMAIL = ['osoian.', 'marcel.', 'd', '@gmail.com'].join('');
+export const CONTACT_EMAIL = ['marcel', '@', 'osoian.com'].join('');
