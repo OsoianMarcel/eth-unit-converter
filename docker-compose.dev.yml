@@ -1,0 +1,8 @@
+services:
+  euc-app:
+    build:
+      target: dev
+    ports:
+      - 5173:5173
+    volumes:
+      - ./:/home/node/app

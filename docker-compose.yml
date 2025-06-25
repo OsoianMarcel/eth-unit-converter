@@ -1,0 +1,9 @@
+services:
+  euc-app:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    networks:
+      euc-internal:
+networks:
+  euc-internal:

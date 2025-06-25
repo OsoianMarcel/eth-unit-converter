@@ -18,6 +18,7 @@
     color: #EDFEFE;
     height: 40px;
     padding: 0 13px;
+    -moz-appearance: textfield;
 
     &--lt1 {
       color: #A9BABA;
@@ -32,8 +33,6 @@
       -webkit-appearance: none;
       margin: 0;
     }
-
-    -moz-appearance: textfield;
   }
 
   &__label {
