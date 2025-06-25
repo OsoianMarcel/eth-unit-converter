@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import BigNumber from 'bignumber.js';
 import ClipboardJS from 'clipboard';
 
@@ -28,6 +28,7 @@ const InputRow: React.FC<InputRowProps> = ({
   const copyRef = useRef<HTMLButtonElement>(null);
   const copyTimeoutId = useRef<number | null>(null);
   const clipboard = useRef<ClipboardJS | null>(null);
+  const inputId = useId();
 
   const isClipboardSupported = ClipboardJS.isSupported();
   const isEmpty = value.trim() === '';
@@ -66,14 +67,15 @@ const InputRow: React.FC<InputRowProps> = ({
 
   return (
     <div className="input-row">
-      <div
+      <label
         className={`input-row__label input-row__label--${
           main ? 'main' : 'def'
         }`}
+        htmlFor={inputId}
         onClick={labelClickHandler}
       >
         {label}
-      </div>
+      </label>
       <input
         type="number"
         className={`input-row__input input-row__input--${
@@ -82,6 +84,7 @@ const InputRow: React.FC<InputRowProps> = ({
         placeholder={placeholder}
         value={value}
         ref={inputRef}
+        id={inputId}
         onChange={handleInputChange}
       />
       <div className="input-row__abs-box">
