@@ -1,0 +1,27 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: ethunitconverter.osoian.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: etherunitconverter.osoian.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: osoian-wildcard-tls
+      hosts:
+        - "osoian.com"
+        - "*.osoian.com"
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+resources:
+  limits:
+    cpu: 500m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi

@@ -43,6 +43,15 @@ case $farg in
   dcProd "$@"
   ;;
 
+"prod:deploy")
+  IMAGE_NAME="osoianmarcel/eth-unit-converter"
+  IMAGE_TAG="$(date +%Y-%m-%d)-$(git rev-parse --short HEAD)"
+  docker build --target prod -t $IMAGE_NAME:$IMAGE_TAG -t $IMAGE_NAME:latest . && \
+  docker push $IMAGE_NAME:$IMAGE_TAG && \
+  docker push $IMAGE_NAME:latest && \
+  helm upgrade euc ./helm -f ./helm-values.yaml --set=image.tag=$IMAGE_TAG
+  ;;  
+
 *)
   printHelp
   ;;

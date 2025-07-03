@@ -1,1 +1,4 @@
 /node_modules
+/dc.bash
+/helm
+/.vscode
